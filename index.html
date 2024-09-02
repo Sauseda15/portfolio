@@ -3,38 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Larry Sauseda - Portfolio</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Portfolio - Larry Sauseda</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="contact.html">Contact</a></li>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">LARRY</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="intro">
-            <h1>Hello, I’m Larry Sauseda</h1>
-            <p>A software developer and intelligence analyst with a passion for innovation and technology.</p>
-        </section>
-        <section class="highlights">
-            <h2>Featured Projects</h2>
-            <div class="projects">
-                <article>
-                    <h3>Discord Events Bot</h3>
-                    <p>Bot for logging discord member participation, banking, and hierarchy.</p>
-                    <a href="https://github.com/your-username/project-link" target="_blank">View on GitHub</a>
-                </article>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1>Hello Everybody, I'm</h1>
+                <h2>Larry Sauseda</h2>
+                <h3>Software Developer and Intelligence Analyst</h3>
+                <p>I design and develop engaging experiences. Passionate about technology, innovation, and solving complex problems.</p>
+                <p><i class="fa fa-map-marker"></i>Colorado Springs, CO</p>
+                <!-- Social Media Icons -->
+                <div class="social-links">
+                    <a href="https://github.com/Sauseda15" target="_blank"><i class="fa fa-github"></i></a>
+                    <a href="https://linkedin.com/in/larry-sauseda-30725b131" target="_blank"><i class="fa fa-linkedin"></i></a>
+                </div>
             </div>
-        </section>
-    </main>
+            <div class="hero-image">
+                <img src="images/Hero.jpg" alt="Larry Sauseda">
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2>My Experiences</h2>
+            <div class="experience-tabs">
+                <button class="tab-button active" onclick="showExperience()">My Experiences</button>
+                <button class="tab-button" onclick="showEducation()">My Education</button>
+            </div>
+            <div id="experience-content" class="experience-content">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">May 2024 - Present</div>
+                        <div class="timeline-content">
+                            <h3>Kitchen Department Manager</h3>
+                            <p>McDonald's – Colorado Springs</p>
+                            <p>Managed daily kitchen operations, staff scheduling, and performance evaluations. Led food preparation and maintained high standards of food safety and cleanliness.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">May 2023 - May 2024</div>
+                        <div class="timeline-content">
+                            <h3>Life Insurance Customer Service Representative</h3>
+                            <p>Northwestern Mutual – Remote</p>
+                            <p>Provided comprehensive customer service for life insurance products, managed sensitive client information, and collaborated to improve customer satisfaction.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">April 2017 - April 2023</div>
+                        <div class="timeline-content">
+                            <h3>Intelligence Analyst</h3>
+                            <p>United States Navy - Various Locations</p>
+                            <p>Served as a certified SIGINT and DNI analyst, conducting cryptologic operations, targeting DTOs and cybercrime networks, analyzing extensive intelligence files, and training on foreign data for cryptanalysis.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">May 2019 - April 2023</div>
+                        <div class="timeline-content">
+                            <h3>Program Manager</h3>
+                            <p>United States Navy - Various Locations</p>
+                            <p>Trained and managed personnel across military branches, conducted meticulous intelligence analysis, produced high-quality intelligence products, and directed career development and operations for over 35 personnel.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">December 2018 - April 2023</div>
+                        <div class="timeline-content">
+                            <h3>Training Coordinator</h3>
+                            <p>United States Navy - Various Locations</p>
+                            <p>Pioneered and managed training programs, assessments, and qualifications for over 30 personnel, significantly increasing the efficiency and number of entry-level analysts and supervisors.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="education-content" class="education-content" style="display:none;">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">In Progress</div>
+                        <div class="timeline-content">
+                            <h3>Bachelor's in Computer Science</h3>
+                            <p>Colorado Technical University</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">March 2023</div>
+                        <div class="timeline-content">
+                            <h3>Network+ | Data+</h3>
+                            <p>CompTIA</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-date">October 2022</div>
+                        <div class="timeline-content">
+                            <h3>Associate of Arts in Spanish</h3>
+                            <p>Defense Language Institute</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-card">
+                <img src="images/Competitive Token.png" alt="Project Image">
+                <div class="project-info">
+                    <h3 class="project-title">Discord Events Bot</h3>
+                    <p class="project-description">Bot for logging discord member participation, banking, and hierarchy.</p>
+                    <a href="https://github.com/Sauseda15/good-company-event-bot" class="project-link" target="_blank">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
     <footer>
-        <p>© 2024 Larry Sauseda | <a href="https://github.com/your-username" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/larry-sauseda" target="_blank">LinkedIn</a></p>
+        <div class="container">
+            <p>&copy; 2024 Larry Sauseda | <a href="https://github.com/Sauseda15" class="footer-link">GitHub</a> | <a href="https://linkedin.com/in/larry-sauseda-30725b131" class="footer-link">LinkedIn</a></p>
+        </div>
     </footer>
+    
+
+    <script src="js/script.js"></script>
 </body>
 </html>
