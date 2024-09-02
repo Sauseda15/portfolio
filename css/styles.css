@@ -40,11 +40,29 @@ main {
     margin-bottom: 30px;
 }
 
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+.project {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
 }
+
+.project h3 {
+    color: #333;
+}
+
+.project a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.project a:hover {
+    text-decoration: underline;
+}
+
 
 .projects article {
     background-color: #fff;
