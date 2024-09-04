@@ -30,6 +30,15 @@ Table of Content:
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
 
+:root {
+  --font-primary: "Montserrat", sans-serif;
+  --text-color: #f0f0f0; /* Soft white */
+  --heading-color: #fff; /* Bright white */
+  --accent-color: #766dff; /* Teal accent color */
+  --gradient-start: #766dff; /* Start color of gradient */
+  --gradient-end: #88f3ff; /* End color of gradient */
+  --line-color: rgb(160, 24, 0); /* Line color */
+}
 
 .list {
   list-style: none;
@@ -222,6 +231,7 @@ button:focus {
         text-transform: uppercase;
         color: #fff;
         padding: 0px;
+        letter-spacing: 1px;
         display: inline-block; }
         .header_area .navbar .nav .nav-item .nav-link:after {
           display: none; }
@@ -552,10 +562,12 @@ body{
       color: #eeeeee;
       font-size: 48px;
       font-family: "Heebo", sans-serif;
-      margin-bottom: 0px;
+      margin-bottom: 4px;
+      text-decoration: underline;
+      font-style: italic;
       font-weight: bold; }
     .banner_area .banner_inner .banner_content .page_link a {
-      font-size: 14px;
+      font-size: 25px;
       color: #e6e6e6;
       font-family: "Roboto", sans-serif;
       margin-right: 32px;
@@ -2697,6 +2709,7 @@ h6 {
     /* padding-left:30%; */
     font-size: 45px;
     background: linear-gradient(to right, #766dff 0%, #86e7ff 70%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; }
 
@@ -2759,52 +2772,57 @@ h6 {
 .mytabs_area {
   
    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(69,86,102,1) 0%, rgba(34,34,34,1) 90% );
- }
+   padding: 40px 0;}
+ 
 
 .tabs_inner .nav.nav-tabs {
-  display: block;
-  text-align: center;
-  border: none;
-  margin-bottom: 120px; }
+    display: flex;
+    justify-content: center; /* Center align the tabs */
+    align-items: center;
+    border: none;
+    margin-bottom: 60px; /* Reduced for a tighter layout */
+  }
   .tabs_inner .nav.nav-tabs li {
     display: inline-block;
-    margin-right: 8px; }
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+  }
     .tabs_inner .nav.nav-tabs li a {
-      margin: 0px;
       line-height: 50px;
       border-radius: 5px;
-      padding: 0px 40px;
+      padding: 5px 25px;
       font-size: 13px;
       font-weight: bold;
-      color: #fff;
-      font-family: "Montserrat", sans-serif;
-      border: 1px solid #9ab5f5;
-      background: rgba(255, 255, 255, 0.1); }
+      color: var(--text-color);
+      font-family: var(--font-primary);
+      border: 1px solid var(--accent-color);
+      background: rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease; /* Smooth transition */
+    }
       
 
 
       .tabs_inner .nav.nav-tabs li a.active {
-        /* background: #fff;
-        color: #222222;  */
-        background-image: -moz-linear-gradient(0deg, #766dff 0%, #88f3ff 100%);
-        background-image: -webkit-linear-gradient(0deg, #766dff 0%, #88f3ff 100%);
-        background-image: -ms-linear-gradient(0deg, #766dff 0%, #88f3ff 100%);
+        background: linear-gradient(0deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+        color: var(--heading-color);
       }
 .tabs_inner .tab-content .tab-pane .list {
   max-width: 460px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 40px 0 60px;
   position: relative;
-  padding-top: 40px;
-  padding-bottom: 60px; }
+}
   .tabs_inner .tab-content .tab-pane .list:before {
     content: "";
     height: 100%;
     width: 5px;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--line-color);
     position: absolute;
-    left: 46%;
+    left: 50%;
     transform: translateX(-50%);
-    top: -5px; }
+    top: 0;
+  }
   .tabs_inner .tab-content .tab-pane .list li {
     margin-bottom: 60px;
     position: relative; }
@@ -2813,11 +2831,13 @@ h6 {
       width: 15px;
       border-radius: 50%;
       display: block;
-      background: rgba(255, 255, 255, 0.2);
+      background: var(--line-color);
       position: absolute;
-      left: 46%;
+      left: 50%;
       top: 30px;
-      transform: translateX(-50%); }
+      transform: translateX(-50%);
+    }
+    
       .tabs_inner .tab-content .tab-pane .list li span:before {
         content: '';
         height: 7px;
@@ -2831,62 +2851,83 @@ h6 {
     .tabs_inner .tab-content .tab-pane .list li:last-child {
       margin-bottom: 0px; }
     .tabs_inner .tab-content .tab-pane .list li .media .d-flex {
+      display: flex;
+      align-items: flex-start;
       padding-right: 100px; }
       .tabs_inner .tab-content .tab-pane .list li .media .d-flex p {
-        color: rgba(255, 255, 255, 0.75);
-        margin-bottom: 0px;
-        padding-top: 20px; }
+        font-weight: 600;
+        font-size: 16px;
+        color: var(--text-color);
+        margin-right: 20px;
+        text-align: right;
+        width: 150px; /* Fixed width for alignment */
+      }
     .tabs_inner .tab-content .tab-pane .list li .media .media-body h4 {
-      color: #fff;
-      font-size: 25px;
+      color: var(--heading-color);
+      font-size: 22px;
       text-transform: capitalize;
-      margin-bottom: 20px; }
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    
     .tabs_inner .tab-content .tab-pane .list li .media .media-body p {
-      color: rgba(255, 255, 255, 0.75);
-      margin-bottom: 0px; }
+      color: #000000;
+      font-weight: 600;
+      font-size: 18px;
+      margin-bottom: 0;
+    }
 
 /* End My Tabs Area css
 ============================================================================================ */
 /* Feature Area css
 ============================================================================================ */
+.feature_area.feature_tow {
+  background: #fff; }
+  .feature_area.feature_tow .feature_item {
+    background: #f9f9ff; }
+    .feature_area.feature_tow .feature_item:hover {
+      background: #fff; }
+.feature_area.white_feature {
+  background: #fff; }
+  .feature_area.white_feature .feature_item {
+    background: #f9f9ff; }
+    .feature_area.white_feature .feature_item:hover {
+      background: #fff; }
+      .feature_item i {
 
-  .feature_area.feature_tow {
-    background: #fff; }
-    .feature_area.feature_tow .feature_item {
-      background: #f9f9ff; }
-      .feature_area.feature_tow .feature_item:hover {
-        background: #fff; }
-  .feature_area.white_feature {
-    background: #fff; }
-    .feature_area.white_feature .feature_item {
-      background: #f9f9ff; }
-      .feature_area.white_feature .feature_item:hover {
-        background: #fff; }
-        .feature_item i {
+        padding-left: 40px;
+        padding-right: 20px;
+        font-size: 150px;
+        background: linear-gradient(to right, #766dff 0%, #86e7ff 70%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+      }
 
-          padding-left: 40px;
-          padding-right: 20px;
-          font-size: 150px;
-          background: linear-gradient(to right, #766dff 0%, #86e7ff 70%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent; 
-        }
 
+/* Container Adjustments */
 .feature_inner {
-  display: flex; /* Or use grid if you prefer */
-  flex-wrap: wrap; /* Allows items to wrap to the next line */
-  gap: 40px; /* Adds both horizontal and vertical space between items */
-  justify-content: center; /* Center the content horizontally */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: center;
 }
 
-/* Style for the section heading */
+/* Section Heading */
 .feature_area h2 {
-  margin-top: 40px;  /* Adds space above the heading */
-  margin-bottom: 40px; /* Adds space below the heading */
-  text-align: center;  /* Centers the heading text */
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+  margin: 20px 0;
+  text-decoration: underline;
+  font-family: "Heebo", sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
 }
 
-/* Optional: Style for the container to add more space around the entire section */
+/* Container Padding */
 .feature_area .container {
   margin-top: 20px;  /* Adds space above the container */
   margin-bottom: 20px; /* Adds space below the container */
@@ -2894,64 +2935,111 @@ h6 {
   padding-bottom: 20px; /* Adds internal padding at the bottom of the container */
 }
 
+/* Feature Card Styling */
 .feature_item {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 50px 35px;
+  padding: 175px 75px;
   border: 1px solid #807d7d;
   border-radius: 10px;
   transition: all 300ms linear 0s;
   background: #121212;
   margin-bottom: 40px;
-  box-shadow: 3px 5px 8px 3px ;
+  box-shadow: 3px 5px 8px 3px;
+  transform-style: preserve-3d;
+  perspective: 1000px; /* Perspective for 3D effect */
+  position: relative; /* Position relative for absolute children */
+  margin: 0 auto;
 }
-  /* .feature_item i {
-    margin-bottom: 35px;
-    display: block; }
-    .feature_item i:before {
-      margin-left: 0px;
-      font-size: 60px;
-      color: #e1e1e1;
-      line-height: 60px; } */
+
+.feature_item_inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* JavaScript-triggered flip effect */
+.feature_item.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Front and Back Face of the Card */
+.feature_item_front,
+.feature_item_back {
+  width: 100%; /* Take full width of the container */
+  height: 100%; /* Take full height of the container */
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+  padding: 20px; /* Padding to give room for text */
+}
+
+/* Back Face Rotated */
+.feature_item_back {
+  transform: rotateY(180deg);
+  background-color: #121212;
+}
+
+/* Feature Item Text Styling */
+.feature_item_front h4,
+.feature_item_back h4 {
+  color: #b1afaf;
+  font-size: 21px;
+  font-family: "Heebo", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.feature_item_front p,
+.feature_item_back p {
+  color: #b1afaf;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 0px;
+}
+.feature_item_front .main_btn{
+  padding: 0px 30px;
+  line-height: 38px;
+}
+
+/* Hover Effects */
+.feature_item:hover {
+  box-shadow: 0px 25px 48px 0px rgba(161, 155, 155, 0.671);
+  background: #121212;
+  border: 3px solid #121212;
+
+  border-radius: 30px 30px 30px 30px;
+}
+
+.feature_item_front:hover h4{
+  color: #7a0000;
+  text-decoration: underline;
+  /* update text size while hover */
+  font-size: 25px;
+  font-weight: bold;
 
 
-  .feature_item h4 {
-    color: #b1afaf;
-    font-size: 21px;
-    font-family: "Heebo", sans-serif;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-transform: uppercase; }
-  .feature_item p {
-    margin-bottom: 0px; }
-  .feature_item .main_btn {
-    padding: 0px 30px;
-    line-height: 38px; }
-  .feature_item:hover {
-    box-shadow: 0px 25px 48px 0px rgba(161, 155, 155, 0.671);
-    /* border-color: #fff; */
-    background: #121212;
-    border: 3px solid #121212;
+}
 
-    border-radius: 30px 30px 30px 30px;
-  }
-  .feature_item h4:hover {
-    color: #000000;
-    font-size: 21px;
-    font-family: "Heebo", sans-serif;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-transform: uppercase; }
-    .feature_item:hover i:before {
-      background: linear-gradient(to right, #8490ff 0%, #62bdfc 70%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent; }
-
-/* End Feature Area css
-============================================================================================ */
+/* Hover Effect for Icons */
+.feature_item:hover i:before {
+  background: linear-gradient(to right, #8490ff 0%, #62bdfc 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-fill-color: transparent;
+}
 /* Personal Profile Area css
 ============================================================================================ */
 .profile_area .col-lg-7 {
@@ -3055,6 +3143,9 @@ h6 {
       background-image: -webkit-linear-gradient(0deg, #c7d3c5 0%, #4b595a 100%);
       background-image: -ms-linear-gradient(0deg, #766dff 0%, #88f3ff 100%); }
 
+/* End Personal Profile Area css
+============================================================================================ */
+/*---------------------------------------------------- */
 /* End Personal Profile Area css
 ============================================================================================ */
 /*---------------------------------------------------- */
