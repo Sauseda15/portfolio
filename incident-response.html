@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171620673-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171620673-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Larry Sauseda | Incident Response Case Study</title>
+    <meta name="description" content="Incident response and digital forensics case study by Larry Sauseda covering a simulated DMZ web-server compromise, containment, evidence preservation, hashing, chain of custody, and timeline analysis.">
+    <meta property="og:title" content="Incident Response Case Study | Larry Sauseda">
+    <meta property="og:description" content="A hands-on DFIR case study covering a compromised DMZ Linux host, persistence analysis, containment, evidence preservation, and incident reconstruction.">
+    <meta property="og:type" content="article">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="vendors/animate-css/animate.css">
+    <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <style>
+        .case-wrap { max-width: 1040px; margin: 0 auto; }
+        .case-hero {
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid rgba(0,0,0,.08);
+            margin-bottom: 2.5rem;
+        }
+        .case-kicker {
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-weight: 700;
+            font-size: .82rem;
+            opacity: .7;
+            margin-bottom: .75rem;
+        }
+        .case-hero h1 { margin-bottom: .75rem; }
+        .case-lede {
+            font-size: 1.08rem;
+            line-height: 1.75;
+            max-width: 850px;
+        }
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1rem;
+            margin-top: 1.75rem;
+        }
+        .meta-card, .case-card {
+            border: 1px solid rgba(0,0,0,.08);
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(0,0,0,.04);
+        }
+        .meta-card { padding: 1rem 1.15rem; }
+        .meta-card strong { display: block; margin-bottom: .3rem; }
+        .case-card {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .case-card h2, .case-card h3 { margin-bottom: 1rem; }
+        .case-card ul { padding-left: 1.2rem; margin-bottom: 0; }
+        .case-card li { margin-bottom: .55rem; }
+        .tag {
+            display: inline-block;
+            padding: .25rem .55rem;
+            margin: .15rem .2rem .15rem 0;
+            border-radius: 999px;
+            background: rgba(0,0,0,.06);
+            font-size: .8rem;
+        }
+        .timeline {
+            border-left: 3px solid rgba(0,0,0,.14);
+            margin-left: .5rem;
+            padding-left: 1.25rem;
+        }
+        .timeline-item { margin-bottom: 1.3rem; }
+        .timeline-item strong { display: block; margin-bottom: .25rem; }
+        .evidence-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .92rem;
+        }
+        .evidence-table th, .evidence-table td {
+            border-bottom: 1px solid rgba(0,0,0,.08);
+            padding: .75rem .6rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        .evidence-table th { font-weight: 700; }
+        .callout {
+            border-left: 4px solid #333;
+            background: rgba(0,0,0,.035);
+            padding: 1rem 1.15rem;
+            margin: 1.25rem 0;
+        }
+        .placeholder {
+            border: 2px dashed rgba(0,0,0,.18);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            background: rgba(0,0,0,.02);
+            color: rgba(0,0,0,.58);
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .footer_area { padding-top: 40px !important; padding-bottom: 40px !important; }
+        code {
+            background: rgba(0,0,0,.06);
+            padding: .1rem .3rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+<header class="header_area">
+    <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container box_1620">
+                <a class="navbar-brand logo" href="index.html">Larry S.</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="projects.html">Projects</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<section class="banner_area">
+    <div class="box_1620">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2>Incident Response Case Study</h2>
+                    <div class="page_link">
+                        <a href="index.html">Home</a>
+                        <a href="projects.html">Projects</a>
+                        <a href="incident-response.html">Incident Response</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<main class="p_120">
+    <div class="container">
+        <div class="case-wrap">
+
+            <section class="case-hero">
+                <div class="case-kicker">Digital Forensics & Incident Response</div>
+                <h1>Compromised DMZ Web Server</h1>
+                <p class="case-lede">
+                    A controlled incident-response exercise involving a Linux DMZ host with unauthorized accounts,
+                    privilege abuse, disabled host protections, and persistent malicious tooling. The objective was to
+                    identify the compromise, contain affected access, preserve evidence, reconstruct attacker activity,
+                    and document the incident using repeatable DFIR procedures.
+                </p>
+
+                <div class="meta-grid">
+                    <div class="meta-card">
+                        <strong>Incident ID</strong>
+                        INC-2026-0907-001
+                    </div>
+                    <div class="meta-card">
+                        <strong>Affected Host</strong>
+                        WEB-DMZ-01
+                    </div>
+                    <div class="meta-card">
+                        <strong>Evidence Host</strong>
+                        EVIDENCE01
+                    </div>
+                    <div class="meta-card">
+                        <strong>Environment</strong>
+                        Controlled training lab
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-card">
+                <h2>Executive Summary</h2>
+                <p>
+                    Investigation of <strong>WEB-DMZ-01</strong> identified signs of unauthorized administrative access,
+                    including suspicious local accounts, elevated privileges, a stopped host firewall, hidden files,
+                    a malicious persistence mechanism, and a suspicious service/process chain.
+                </p>
+                <p>
+                    Containment actions included disabling unauthorized accounts, removing interactive shell access,
+                    restoring host firewall protections, reviewing active network listeners, and isolating suspicious
+                    persistence components for preservation and analysis.
+                </p>
+
+                <div class="callout">
+                    <strong>Portfolio context:</strong>
+                    This was a simulated incident in a self-contained lab environment. It is presented as hands-on DFIR
+                    training and not as a production breach.
+                </div>
+            </section>
+
+            <section class="two-col">
+                <div class="case-card">
+                    <h2>Initial Findings</h2>
+                    <ul>
+                        <li><strong>webadmin</strong> observed as an active account.</li>
+                        <li><strong>sysmaint</strong> identified as a newly created account with <code>wheel</code> privileges.</li>
+                        <li>Host firewall found stopped during the investigation.</li>
+                        <li>Suspicious hidden file discovered on the host.</li>
+                        <li>Suspicious artifacts identified at <code>/tmp/.system-update</code> and <code>/usr/bin/system-update</code>.</li>
+                        <li>Persistence associated with <code>system-update.service</code>.</li>
+                        <li>Suspicious process activity associated with PID <code>18579</code>.</li>
+                    </ul>
+                </div>
+
+                <div class="case-card">
+                    <h2>Tools & Techniques</h2>
+                    <div>
+                        <span class="tag">Linux</span>
+                        <span class="tag">journalctl</span>
+                        <span class="tag">systemd</span>
+                        <span class="tag">ss</span>
+                        <span class="tag">SHA-256</span>
+                        <span class="tag">SFTP</span>
+                        <span class="tag">Chain of Custody</span>
+                        <span class="tag">Evidence Preservation</span>
+                        <span class="tag">Process Analysis</span>
+                        <span class="tag">Network Review</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-card">
+                <h2>Containment Actions</h2>
+                <ul>
+                    <li>Locked the <strong>webadmin</strong> and <strong>sysmaint</strong> accounts.</li>
+                    <li>Disabled interactive shells for unauthorized accounts to prevent further login activity.</li>
+                    <li>Restarted <strong>firewalld</strong> to restore host-level filtering.</li>
+                    <li>Attempted a deny-all containment posture while preserving investigative access.</li>
+                    <li>Reviewed active listeners and network services with <code>ss -tulpn</code>.</li>
+                    <li>Stopped and isolated the suspicious <code>system-update</code> persistence mechanism for evidence handling.</li>
+                </ul>
+            </section>
+
+            <section class="case-card">
+                <h2>Evidence Preservation</h2>
+                <p>
+                    Evidence was copied using preservation-aware methods, hashed with SHA-256, documented in a chain-of-custody
+                    manifest, and transferred by SFTP to a dedicated evidence host. Pre- and post-transfer hashes were compared
+                    to verify integrity.
+                </p>
+
+                <div class="table-responsive">
+                    <table class="evidence-table">
+                        <thead>
+                            <tr>
+                                <th>Evidence Type</th>
+                                <th>Examples Preserved</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Suspicious executables/scripts</td>
+                                <td><code>.system-update</code>, <code>system-update</code>, related scripts</td>
+                            </tr>
+                            <tr>
+                                <td>Persistence</td>
+                                <td><code>system-update.service</code></td>
+                            </tr>
+                            <tr>
+                                <td>Network/process state</td>
+                                <td>Process listings, listening ports, network snapshots</td>
+                            </tr>
+                            <tr>
+                                <td>SSH artifacts</td>
+                                <td>Private/public keys, known_hosts</td>
+                            </tr>
+                            <tr>
+                                <td>Supporting files</td>
+                                <td><code>net-check</code>, <code>.hosts</code>, PID-related artifacts</td>
+                            </tr>
+                            <tr>
+                                <td>Documentation</td>
+                                <td>Chain-of-custody record, manifest, SHA-256 verification log</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="case-card">
+                <h2>Investigation Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <strong>20:09–20:12 — Suspicious Activity Window</strong>
+                        Authentication and system-service activity identified around the same period as suspicious account,
+                        process, and persistence behavior.
+                    </div>
+
+                    <div class="timeline-item">
+                        <strong>Containment</strong>
+                        Unauthorized accounts were locked, shells disabled, and firewall protections restored.
+                    </div>
+
+                    <div class="timeline-item">
+                        <strong>Artifact Collection</strong>
+                        Suspicious binaries, service files, SSH artifacts, host-state snapshots, and supporting files were preserved.
+                    </div>
+
+                    <div class="timeline-item">
+                        <strong>Integrity Verification</strong>
+                        SHA-256 hashes were generated prior to transfer and verified again on the evidence host.
+                    </div>
+
+                    <div class="timeline-item">
+                        <strong>Case Documentation</strong>
+                        Chain-of-custody entries and an evidence manifest were completed for evidence items E001–E011.
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-card">
+                <h2>Log & Artifact Review</h2>
+                <p>
+                    The investigation used system and authentication logging to correlate account use, persistence execution,
+                    and supporting processes. Review included:
+                </p>
+                <ul>
+                    <li><code>journalctl</code> searches for SSH and account activity.</li>
+                    <li>Service logs associated with <code>system-update</code>.</li>
+                    <li>Logs related to <code>net-check</code> and associated system activity.</li>
+                    <li>Process and network-state snapshots to identify suspicious runtime behavior.</li>
+                    <li>Filesystem review to identify hidden and unusual artifacts.</li>
+                </ul>
+            </section>
+
+            <section class="case-card">
+                <h2>Chain of Custody</h2>
+                <p>
+                    A chain-of-custody record was created for the incident using the incident ID, evidence ID, source host,
+                    collector identity, collection timestamps, transfer method, and integrity-verification results.
+                </p>
+                <ul>
+                    <li>Source: <strong>WEB-DMZ-01</strong></li>
+                    <li>Destination: <strong>EVIDENCE01</strong></li>
+                    <li>Transfer: <strong>SFTP</strong></li>
+                    <li>Integrity method: <strong>SHA-256</strong></li>
+                    <li>Evidence identifiers: <strong>E001–E011</strong></li>
+                </ul>
+            </section>
+
+            <section class="case-card">
+                <h2>MITRE ATT&CK Mapping</h2>
+                <p>
+                    A formal ATT&CK mapping was not recorded during the original exercise. Based on the observed behaviors,
+                    likely areas for future mapping include account creation, privilege escalation, persistence through system
+                    services, credential/SSH artifact use, and defense impairment.
+                </p>
+                <div class="callout">
+                    I would keep the portfolio wording exactly this cautious unless you later document specific technique IDs
+                    from your lab notes. It is better to show disciplined analysis than to force an unsupported ATT&CK mapping.
+                </div>
+            </section>
+
+            <section class="case-card">
+                <h2>What I Learned</h2>
+                <ul>
+                    <li>Containment decisions must balance stopping attacker activity with preserving enough access to collect evidence.</li>
+                    <li>Hash verification before and after transfer is critical for demonstrating evidence integrity.</li>
+                    <li>Persistence can be distributed across accounts, scripts, binaries, services, and startup mechanisms.</li>
+                    <li>Host logs become more useful when correlated with process state, filesystem artifacts, and network listeners.</li>
+                    <li>Chain-of-custody documentation should begin during collection, not after the technical work is finished.</li>
+                </ul>
+            </section>
+
+            <section class="case-card">
+                <h2>Sanitized Screenshots & Artifacts</h2>
+                <p>
+                    Add screenshots here after removing any unnecessary usernames, IP addresses, or training-environment details
+                    that you do not want publicly exposed.
+                </p>
+
+                <div class="two-col">
+                    <div class="placeholder">
+                        Screenshot placeholder<br>
+                        <small>Example: suspicious service / systemctl output</small>
+                    </div>
+                    <div class="placeholder">
+                        Screenshot placeholder<br>
+                        <small>Example: SHA-256 verification / evidence manifest</small>
+                    </div>
+                    <div class="placeholder">
+                        Screenshot placeholder<br>
+                        <small>Example: journalctl timeline</small>
+                    </div>
+                    <div class="placeholder">
+                        Screenshot placeholder<br>
+                        <small>Example: process/network investigation</small>
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-card">
+                <h2>Skills Demonstrated</h2>
+                <div>
+                    <span class="tag">Incident Triage</span>
+                    <span class="tag">Linux Forensics</span>
+                    <span class="tag">Log Analysis</span>
+                    <span class="tag">Process Analysis</span>
+                    <span class="tag">Network Analysis</span>
+                    <span class="tag">Containment</span>
+                    <span class="tag">Evidence Preservation</span>
+                    <span class="tag">SHA-256</span>
+                    <span class="tag">Chain of Custody</span>
+                    <span class="tag">Technical Documentation</span>
+                </div>
+            </section>
+
+            <section class="case-card">
+                <h2>Next Improvements</h2>
+                <ul>
+                    <li>Add a sanitized network diagram showing WEB-DMZ-01, firewall zones, and EVIDENCE01.</li>
+                    <li>Add a concise incident timeline graphic.</li>
+                    <li>Publish a redacted evidence manifest and SHA-256 verification example.</li>
+                    <li>Create a formal ATT&CK mapping after validating technique IDs against the observed lab behavior.</li>
+                    <li>Link a downloadable sanitized incident report PDF once prepared.</li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+</main>
+
+<footer class="footer_area">
+    <div class="container">
+        <div class="row footer_inner align-items-center">
+            <div class="col-md-6 text-center text-md-left">
+                <p>&copy; 2026 Larry Sauseda</p>
+            </div>
+
+            <div class="col-md-6 text-center text-md-right">
+                <ul class="list personal_social">
+                    <li><a href="https://github.com/Sauseda15" target="_blank" rel="noopener"><i class="fa fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/larry-sauseda/" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/stellar.js"></script>
+<script src="vendors/lightbox/simpleLightbox.min.js"></script>
+<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="js/theme.js"></script>
+</body>
+</html>

@@ -1,123 +1,238 @@
 <!doctype html>
 <html lang="en">
-    <head>
-
-
-
-        	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171620673-1"></script>
-	<script>
- 	 window.dataLayer = window.dataLayer || [];
- 	 function gtag(){dataLayer.push(arguments);}
- 	 gtag('js', new Date());
-
- 	 gtag('config', 'UA-171620673-1');
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171620673-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171620673-1');
     </script>
 
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Larry Sauseda</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Larry Sauseda | Cybersecurity Projects</title>
+    <meta name="description" content="Cybersecurity portfolio projects by Larry Sauseda covering incident response, digital forensics, network defense, vulnerability assessment, and security engineering.">
+    <meta property="og:title" content="Larry Sauseda | Cybersecurity Projects">
+    <meta property="og:description" content="Hands-on cybersecurity projects spanning incident response, forensics, network defense, vulnerability assessment, and security operations.">
+    <meta property="og:type" content="website">
 
-            <meta name="description" content="Larry Sauseda, Software Developer and Intelligence Analyst"> 
-            <meta property="og:title" content="About Larry Sauseda"/>
-            <meta property="og:description" content="About Larry Sauseda, Intelligence Analyst">
-            <meta property="og:type" content=”Portfolio” />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="vendors/animate-css/animate.css">
+    <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="vendors/linericon/style.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="vendors/lightbox/simpleLightbox.css">
-        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="vendors/animate-css/animate.css">
-        <link rel="stylesheet" href="vendors/popup/magnific-popup.css">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/fonts.css">
-		<link rel="stylesheet" href="css/responsive.css">
-		
-    </head>
-    <body>
-        
-        <!--================Header Menu Area =================-->
-        <header class="header_area">
-            <div class="main_menu">
-            	<nav class="navbar navbar-expand-lg navbar-light">
-					<div class="container box_1620">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<a class="navbar-brand logo" href="index">Larry S.</a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-							<ul class="nav navbar-nav menu_nav ml-auto">
-								<li class="nav-item active"><a class="nav-link" href="index.html">•Home</a></li> 
-								<li class="nav-item"><a class="nav-link" href="skills.html">•Skills</a></li> 
-								<li class="nav-item"><a class="nav-link" href="projects.html">•Projects</a></li>
-							</ul>
-						</div> 
-					</div>
-            	</nav>
+    <style>
+        .portfolio-intro { max-width: 820px; margin: 0 auto 3rem; text-align: center; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        .project-card {
+            border: 1px solid rgba(0,0,0,.08);
+            border-radius: 14px;
+            padding: 1.6rem;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(0,0,0,.05);
+            height: 100%;
+        }
+        .project-card h3 { margin-bottom: .35rem; }
+        .project-subtitle { font-weight: 600; opacity: .75; margin-bottom: 1rem; }
+        .project-card ul { padding-left: 1.2rem; }
+        .project-card li { margin-bottom: .55rem; }
+        .tag { display:inline-block; padding:.25rem .55rem; margin:.15rem .2rem .15rem 0; border-radius:999px; background:rgba(0,0,0,.06); font-size:.8rem; }
+        .project-links { margin-top: 1rem; }
+        .project-links .btn { margin-right: .5rem; margin-bottom: .5rem; }
+        .note-card { border-left: 4px solid #444; padding: 1rem 1.2rem; background: rgba(0,0,0,.03); margin-top: 2rem; }
+        .footer_area { padding-top: 40px !important; padding-bottom: 40px !important; }
+    </style>
+</head>
+
+<body>
+<header class="header_area">
+    <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container box_1620">
+                <a class="navbar-brand logo" href="index.html">Larry S.</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="projects.html">Projects</a></li>
+                    </ul>
+                </div>
             </div>
-		</header>  
-    
-    
-        <section class="banner_area">
-            <div class="box_1620">
-				<div class="banner_inner d-flex align-items-center">
-					<div class="container">
-						<div class="banner_content text-center">
-							<h2>Featured Projects</h2>
-							<div class="page_link">
-								<a href="index.html">Home</a>
-								<a href="services.html">Projects</a>
-							</div>
-						</div>
-					</div>
-				</div>
-            </div>
-        </section>
+        </nav>
+    </div>
+</header>
 
-<section class="projects">
-    <div class="project-card">
-        <img src="images/Competitive Token.png" alt="Discord Events Bot Thumbnail" class="project-image">
-        <h3 class="project-title">Discord Events Bot</h3>
-        <p class="project-description">
-            Bot for logging Discord member participation, banking, and hierarchy.
-        </p>
-        <a class="project-link" href="https://github.com/Sauseda15/good-company-event-bot" target="_blank">View on GitHub</a>
+<section class="banner_area">
+    <div class="box_1620">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2>Cybersecurity Projects</h2>
+                    <div class="page_link">
+                        <a href="index.html">Home</a>
+                        <a href="projects.html">Projects</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<footer class="footer_area p_120">
+<section class="p_120">
     <div class="container">
-        <div class="row footer_inner">
-            <!-- Copyright Section -->
-            <div class="col-md-4 text-center text-md-left">
-                <p>&copy; 2024 Larry Sauseda</p>
-            </div>
-        <div class="col-lg-5 col-sm-6">
-            <aside class="f_widget news_widget">
-            </aside>
+        <div class="portfolio-intro">
+            <h2>Hands-On Security Work</h2>
+            <p>
+                These projects focus on practical defensive security: investigating incidents, preserving evidence,
+                analyzing logs and network activity, hardening systems, validating segmentation, and identifying
+                vulnerabilities in controlled environments.
+            </p>
         </div>
-        
 
-            <!-- Social Links Section -->
-            <div class="col-lg-2">
-                <aside class="f_widget social_widget">
-                    <div class="f_title">
-                        <h3>Social</h3>
-                    </div>
-                    <p><h3>Let's Connect:</h3></p>
-                    <ul class="list">
-                        <li><a href="https://github.com/Sauseda15" target="_blank"><i class="fa fa-github"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/larry-sauseda-30725b131/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-                </aside>
+        <div class="project-grid">
+
+            <article class="project-card">
+                <h3>Incident Response & Digital Forensics</h3>
+                <div class="project-subtitle">Compromised DMZ Web Server</div>
+                <p>
+                    Simulated compromise investigation focused on account abuse, persistence, host containment,
+                    evidence preservation, and timeline reconstruction.
+                </p>
+                <ul>
+                    <li>Identified unauthorized privileged accounts and suspicious persistence mechanisms.</li>
+                    <li>Reviewed authentication, process, network, and system logs to reconstruct activity.</li>
+                    <li>Contained affected accounts, restored host firewall protections, and reviewed listening services.</li>
+                    <li>Preserved artifacts with metadata intact and generated SHA-256 hashes before and after transfer.</li>
+                    <li>Documented chain of custody and securely transferred evidence to a designated evidence host.</li>
+                </ul>
+                <div>
+                    <span class="tag">Linux</span>
+                    <span class="tag">journalctl</span>
+                    <span class="tag">systemd</span>
+                    <span class="tag">SHA-256</span>
+                    <span class="tag">SFTP</span>
+                    <span class="tag">Incident Response</span>
+                    <span class="tag">Digital Forensics</span>
+                </div>
+                <div class="project-links">
+                    <a class="btn btn-primary" href="#" aria-disabled="true">Case Study Coming Soon</a>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <h3>Enterprise Security Homelab</h3>
+                <div class="project-subtitle">Segmented Network Defense Environment</div>
+                <p>
+                    Multi-system virtual lab designed to practice defensive administration, logging, segmentation,
+                    identity controls, and incident investigation.
+                </p>
+                <ul>
+                    <li>Built a lab with OPNsense, Linux, Windows Server, Active Directory, Kali Linux, and Wazuh.</li>
+                    <li>Created LAN/DMZ/WAN segmentation and firewall/ACL rules based on least-privilege access.</li>
+                    <li>Hardened SSH and reduced unnecessary services on Linux systems.</li>
+                    <li>Used Wazuh and native host logs to investigate authentication, account creation, and privilege activity.</li>
+                    <li>Validated exposed ports and services with network discovery and service enumeration.</li>
+                </ul>
+                <div>
+                    <span class="tag">OPNsense</span>
+                    <span class="tag">Wazuh</span>
+                    <span class="tag">Windows Server</span>
+                    <span class="tag">Active Directory</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">Network Segmentation</span>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <h3>Vulnerability Assessment & Reconnaissance</h3>
+                <div class="project-subtitle">Multi-Host Security Assessment</div>
+                <p>
+                    Structured network reconnaissance and service analysis used to identify exposed systems,
+                    vulnerable services, and remediation priorities.
+                </p>
+                <ul>
+                    <li>Performed network discovery across a multi-host environment with Nmap.</li>
+                    <li>Enumerated open ports, services, and software versions.</li>
+                    <li>Used Nikto to assess exposed web services for common weaknesses and risky configurations.</li>
+                    <li>Documented findings in a repeatable workflow for remediation and defensive follow-up.</li>
+                </ul>
+                <div>
+                    <span class="tag">Nmap</span>
+                    <span class="tag">Nikto</span>
+                    <span class="tag">Kali Linux</span>
+                    <span class="tag">TCP/IP</span>
+                    <span class="tag">Vulnerability Management</span>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <h3>Discord Events Bot</h3>
+                <div class="project-subtitle">Python Automation & Data Management</div>
+                <p>
+                    Custom Discord bot for event participation, member banking, hierarchy, and automated workflow tracking.
+                </p>
+                <ul>
+                    <li>Built Python automation using discord.py.</li>
+                    <li>Implemented persistent member/token data with SQL-backed workflows.</li>
+                    <li>Created event management, role-aware features, and automated notifications.</li>
+                </ul>
+                <div>
+                    <span class="tag">Python</span>
+                    <span class="tag">discord.py</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Automation</span>
+                </div>
+                <div class="project-links">
+                    <a class="btn btn-outline-dark" href="https://github.com/Sauseda15/good-company-event-bot" target="_blank" rel="noopener">View on GitHub</a>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="note-card">
+            <strong>Portfolio note:</strong>
+            Security labs are intentionally presented as controlled lab work rather than production incidents.
+            Detailed case studies will include sanitized timelines, findings, evidence-handling steps, screenshots,
+            and remediation notes where appropriate.
+        </div>
+    </div>
+</section>
+
+<footer class="footer_area">
+    <div class="container">
+        <div class="row footer_inner align-items-center">
+            <div class="col-md-6 text-center text-md-left">
+                <p>&copy; 2026 Larry Sauseda</p>
+            </div>
+            <div class="col-md-6 text-center text-md-right">
+                <ul class="list personal_social">
+                    <li><a href="https://github.com/Sauseda15" target="_blank" rel="noopener"><i class="fa fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/larry-sauseda/" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
             </div>
         </div>
     </div>
 </footer>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/stellar.js"></script>
+<script src="vendors/lightbox/simpleLightbox.min.js"></script>
+<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+<script src="js/theme.js"></script>
+</body>
+</html>

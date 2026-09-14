@@ -1,27 +1,25 @@
 <!doctype html>
 <html lang="en">
-    <head>
-
-
-		<!-- Global site tag (gtag.js) - Google Analytics -->
+<head>
+	<!-- Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-171620673-1"></script>
 	<script>
- 	 window.dataLayer = window.dataLayer || [];
- 	 function gtag(){dataLayer.push(arguments);}
- 	 gtag('js', new Date());
-
- 	 gtag('config', 'UA-171620673-1');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171620673-1');
 	</script>
 
-        <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Larry Sauseda</title>
 
-            <meta name="description" content="Larry Sauseda, Software Developer and Intelligence Analyst"> 
-            <meta property="og:title" content="About Larry Sauseda"/>
-            <meta property="og:description" content="About Larry Sauseda, Intelligence Analyst">
-            <meta property="og:type" content=”Portfolio” />
+        <title>Larry Sauseda | Cybersecurity Threat Intelligence & SOC Analyst</title>
+            <meta name="description" content="Security+-certified U.S. Navy intelligence veteran with 6+ years of experience in SIGINT,
+             OSINT, threat analysis, incident response, network defense, and security operations."> 
+            <meta property="og:title" content="Larry Sauseda | Cyber Threat Intelligence & SOC Analyst"/>
+            <meta property="og:description" content="Security+-certified Navy intelligence veteran specializing in threat intelligence,
+             SOC operations, incident response, and network defense.">
+            <meta property="og:type" content=”website” />
 
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -34,28 +32,79 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/fonts.css">
 		<link rel="stylesheet" href="css/responsive.css">
-		
-    </head>
-    <body>
-        
-        <!--================Header Menu Area =================-->
+		<style>
+        .hero-copy h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+        .hero-copy h2 { font-size: 1.35rem; font-weight: 600; margin-bottom: 1rem; }
+        .hero-copy p { font-size: 1.05rem; line-height: 1.7; max-width: 760px; }
+        .hero-kicker { text-transform: uppercase; letter-spacing: .12em; font-size: .82rem; font-weight: 700; opacity: .75; }
+        .hero-cta { margin-top: 1.5rem; }
+        .hero-cta .btn { margin-right: .65rem; margin-bottom: .65rem; }
+        .section-title { text-align: center; margin-bottom: 2.5rem; }
+        .section-title h2 { margin-bottom: .6rem; }
+        .section-title p { max-width: 760px; margin: 0 auto; }
+        .project-card, .skill-card {
+            height: 100%;
+            border: 1px solid rgba(0,0,0,.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(0,0,0,.05);
+        }
+        .project-card h4, .skill-card h4 { margin-bottom: .75rem; }
+        .project-meta { font-size: .9rem; font-weight: 600; opacity: .75; margin-bottom: .9rem; }
+        .tag-list { margin-top: 1rem; }
+        .tag {
+            display: inline-block;
+            margin: .2rem .25rem .2rem 0;
+            padding: .25rem .55rem;
+            border-radius: 999px;
+            background: rgba(0,0,0,.06);
+            font-size: .8rem;
+        }
+        .evidence-list { padding-left: 1.15rem; margin-bottom: 0; }
+        .evidence-list li { margin-bottom: .45rem; }
+        .timeline-copy { max-width: 780px; margin: 0 auto; }
+        .contact-box {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,.08);
+            border-radius: 12px;
+            padding: 2rem;
+            background: #fff;
+        }
+        .muted { opacity: .78; }
+        .footer_area { padding-top: 40px !important; padding-bottom: 40px !important; }
+        @media (max-width: 767px) {
+            .hero-copy h1 { font-size: 2.3rem; }
+            .hero-copy h2 { font-size: 1.15rem; }
+        }
+    </style>
+</head>
+<body>   
+        <!--================Header=================-->
         <header class="header_area">
             <div class="main_menu">
             	<nav class="navbar navbar-expand-lg navbar-light">
 					<div class="container box_1620">
 						<!-- Brand and toggle get grouped for better mobile display -->
 						<a class="navbar-brand logo" href="index.html">Larry S.</a>
-						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<button class="navbar-toggler" type="button" data-toggle="collapse" 
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
+                                aria-expanded="false" aria-label="Toggle navigation">
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
+
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
-								<li class="nav-item active"><a class="nav-link" href="index.html">•   Home</a></li> 
-								<li class="nav-item"><a class="nav-link" href="skills.html">• Skills</a></li> 
-								<li class="nav-item"><a class="nav-link" href="projects.html">• Projects</a></li>
+								<li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
+                                <li class="nav-item"><a class="nav-link" href="#featured-projects">Featured Work</a></li> 
+								<li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li> 
+								<li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 							</ul>
 						</div> 
 					</div>
@@ -63,31 +112,46 @@
             </div>
 		</header>
 
-
-        <!--================Home Banner Area =================-->
+        <!--- Hero -->
         <section class="home_banner_area">
 			<div class="black_1">
            	<div class="container box_1620">
            		<div class="banner_inner d-flex align-items-center">
-					<div class="banner_content">
-						<div class="media">
+					<div class="banner_content w-100">
+						<div class="media align-items-center">
 							<div class="d-flex hero-image">
-								<img src="images/Hero.jpg" alt="..." loading="lazy" alt="main_image">
+								<img src="images/Hero.jpg" alt="Portrait of Larry Sauseda" loading="lazy">
 							</div>
+
 							<div class="media-body">
-								<div class="personal_text">
-									<h5>Hi everyone, I'm</h5>
-									<div class="Hello"> <h3>Larry Sauseda</h3> </div>
-									<h4>Software Developer and Intelligence Analyst</h4>
-                                    <p>Navy Verteran with 6+ years of Multilingual Intelligence Collection & Analysis experience, now transitioning into Data & Software Solutions.</p>
-									
-									<ul class="list basic_info">
-										<li ><a href="mailto:larrysauseda15@gmail.com" target="_blank" ><i class="fa fa-envelope-o" aria-hidden="true"></i>Gmail</a></li> 
-										<li><a href="https://maps.app.goo.gl/DXJHiQTzqgkTBbqU9" target="_blank"><i class="fa fa-location-arrow" aria-hidden="true"></i> Colorado Springs, CO</a></li>
-									</ul>
-									<ul class="list personal_social">
-										<li><a href="https://github.com/Sauseda15" target="_blank"><i class="fa fa-github"></i></a></li>
-										<li><a href="https://www.linkedin.com/in/larry-sauseda-30725b131/" target=" _blank"><i class="fa fa-linkedin"></i></a></li>
+								<div class="personal_text hero-copy">
+									<div class="hero-kicker">Cyber Threat Intelligence • SOC • Incident Response </div>
+									<h1>Larry Sauseda</h1>
+                                    <h2>Security+ Certified | U.S. Navy Intelligence Veteran | B.S. Computer Science</h2>
+                                    <p>
+                                        Cybersecurity and threat intelligence professional with 6+ years of U.S. Navy
+                                        intelligence experience, analyzing SIGINT, OSINT, adversary behavior, and emerging
+                                        threats. I combine intelligence tradecraft with hands-on security operations,
+                                        incident response, network defense, and digital evidence handling.
+                                    </p>
+                                    <p class="muted">
+                                        Relocating to Naperville, Illinois • Open to Chicago-area hybrid/on-site roles and U.S. remote opportunities
+                                    </p>
+
+                                    <div class="hero-cta">
+                                        <a class="btn btn-primary" href="#featured-projects">View Featured Work</a>
+                                        <a class="btn btn-outline-primary" href="projects.html">All Projects</a>
+                                        <a class="btn btn-outline-secondary" href="https://github.com/Sauseda15" target="_blank" rel="noopener">GitHub</a>
+                                        <a class="btn btn-outline-dark" href="https://www.linkedin.com/in/larry-sauseda-30725b131/" target="_blank" rel="noopener">LinkedIn</a>
+                                    </div>
+
+									<ul class="list basic_info mt-3">
+										<li>
+                                            <a href="mailto:larrysauseda15@gmail.com">
+                                                <i class ="fa fa-envelope-o" aria-hidden="true">Gmail</i>
+                                                larrysauseda15@gmail.com
+                                            </a>
+                                        </li>
 									</ul>
 								</div>
 							</div>
@@ -98,157 +162,124 @@
 		</div>
         </section>
         <!--================End Home Banner Area =================-->
-
-    <section class="mytabs_area p_120">
+        <!-- Experience / Education / Certification -->
+    <section class="p_120">
         <div class="container">
+            <div class="section-title">
+                <h2>Experience, Education & Certification</h2>
+                <p>A concise view of the professional background behind the technical work.</p>
+            </div>
+
             <div class="tabs_inner">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Experiences</a>
+                        <a class="nav-link active" id="experience-tab" data-toggle="tab" href="#experience"
+                           role="tab" aria-controls="experience" aria-selected="true">Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My Education</a>
+                        <a class="nav-link" id="education-tab" data-toggle="tab" href="#education"
+                           role="tab" aria-controls="education" aria-selected="false">Education</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="cert-tab" data-toggle="tab" href="#cert" role="tab" aria-controls="cert" aria-selected="false">My Certifications</a>
+                        <a class="nav-link" id="cert-tab" data-toggle="tab" href="#cert"
+                           role="tab" aria-controls="cert" aria-selected="false">Certification</a>
                     </li>
                 </ul>
+
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <ul class="list">
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>May 2019 To<br /> April 2023</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>United States Navy </h4>
-                                        <p>Program Manager<br />Various Locations</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>December 2018 To<br /> April 2023</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>United States Navy</h4>
-                                        <p>Training Coordinator</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>April 2017 To<br /> April 2023</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>United States Navy</h4>
-                                        <p>Intelligence Analyst</p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                    <div class="tab-pane fade show active" id="experience" role="tabpanel" aria-labelledby="experience-tab">
+                        <div class="timeline-copy py-4">
+                            <h4>U.S. Navy — Intelligence Analyst</h4>
+                            <p class="muted">April 2017 – April 2023</p>
+                            <p>
+                                Analyzed SIGINT, OSINT, communications, behavior patterns, and emerging threats;
+                                produced 70+ intelligence products for interagency and law-enforcement partners;
+                                applied legal and intelligence-oversight requirements to finished reporting.
+                            </p>
+
+                            <h4 class="mt-4">U.S. Navy — Program Manager</h4>
+                            <p class="muted">May 2019 – April 2023</p>
+                            <p>
+                                Led 20+ personnel analyzing 600+ targets, performed quality assurance on intelligence
+                                products, coordinated stakeholder requirements, and directed career development and daily operations.
+                            </p>
+
+                            <h4 class="mt-4">U.S. Navy — Training Coordinator</h4>
+                            <p class="muted">December 2018 – April 2023</p>
+                            <p>
+                                Built and managed analyst qualification programs, delivered 600+ hours of operational training,
+                                and supported the development of 80+ personnel across intelligence workflows and database systems.
+                            </p>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <ul class="list">
-                            <li>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>July 2025 To Present</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4> Master's <br /> Business Administration</h4>
-                                        <p>Colorado Tech <br />University</p>
-                                    </div>
-                                </div>
-                                <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>February 2023 To June 2025</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>  Bachelor's <br /> Computer Science</h4>
-                                        <p>Colorado Tech <br />University</p>
-                                        
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                            <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>June 2017 To October 2022</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Associates of Arts<br />Spanish</h4>
-                                        <p> Defense Language Institute </p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+
+                    <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
+                        <div class="timeline-copy py-4">
+                            <h4>M.B.A., Accountancy & Data Analytics</h4>
+                            <p>Colorado Technical University — Expected August 2027</p>
+
+                            <h4 class="mt-4">B.S., Computer Science</h4>
+                            <p>Colorado Technical University — June 2025</p>
+
+                            <h4 class="mt-4">A.A., Spanish</h4>
+                            <p>Defense Language Institute — October 2022</p>
+                        </div>
                     </div>
+
                     <div class="tab-pane fade" id="cert" role="tabpanel" aria-labelledby="cert-tab">
-                        <ul class="list">
-                            <li>
-                            <span></span>
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <p>Earned September 2026</p>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>Security+</h4>
-                                        <p> CompTIA </p>
-                                    </div>
-                                    <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="4775032b-986e-47c8-858a-ab0691b39c41" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="timeline-copy py-4">
+                            <h4>CompTIA Security+ (SY0-701)</h4>
+                            <p>Earned September 2026</p>
+                            <p class="muted">Valid through September 2029</p>
+
+                            <div data-iframe-width="150" data-iframe-height="270"
+                                 data-share-badge-id="4775032b-986e-47c8-858a-ab0691b39c41"
+                                 data-share-badge-host="https://www.credly.com"></div>
+                            <script type="text/javascript" async src="https://cdn.credly.com/assets/utilities/embed.js"></script>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer_area p_120">
+    <!-- Contact -->
+    <section id="contact" class="p_120">
         <div class="container">
-            <div class="row footer_inner">
-                <!-- Copyright Section -->
-                <div class="col-md-4 text-center text-md-left">
-                    <p>&copy; 2024 Larry Sauseda</p>
-                </div>
-            <div class="col-lg-5 col-sm-6">
-                <aside class="f_widget news_widget">
-                </aside>
+            <div class="contact-box">
+                <h2>Let’s Connect</h2>
+                <p>
+                    I’m targeting cyber threat intelligence, SOC, threat investigation, incident response,
+                    and adjacent security analyst roles in the Chicago area and remotely.
+                </p>
+                <p>
+                    <a class="btn btn-primary" href="mailto:larrysauseda15@gmail.com">Email Me</a>
+                    <a class="btn btn-outline-dark" href="https://www.linkedin.com/in/larry-sauseda/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a class="btn btn-outline-dark" href="https://github.com/Sauseda15" target="_blank" rel="noopener">GitHub</a>
+                </p>
             </div>
-            
-    
-                <!-- Social Links Section -->
-                <div class="col-lg-2">
-                    <aside class="f_widget social_widget">
-                        <div class="f_title">
-                            <h3>Social</h3>
-                        </div>
-                        <p><h3>Let's Connect:</h3></p>
-                        <ul class="list">
-                            <li><a href="https://github.com/Sauseda15" target="_blank"><i class="fa fa-github"></i></a></li>
-                            <li><a href="https://www.linkedin.com/in/larry-sauseda-30725b131/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </aside>
+        </div>
+    </section>
+
+    <footer class="footer_area">
+        <div class="container">
+            <div class="row footer_inner align-items-center">
+                <div class="col-md-6 text-center text-md-left">
+                    <p>&copy; 2026 Larry Sauseda</p>
+                </div>
+
+                <div class="col-md-6 text-center text-md-right">
+                    <ul class="list personal_social">
+                        <li><a href="https://github.com/Sauseda15" target="_blank" rel="noopener"><i class="fa fa-github"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/larry-sauseda/" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </footer>
-    
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/stellar.js"></script>
     <script src="vendors/lightbox/simpleLightbox.min.js"></script>
