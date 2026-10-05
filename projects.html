@@ -50,9 +50,10 @@
         .note-card { border-left: 4px solid #444; padding: 1rem 1.2rem; background: rgba(0,0,0,.03); margin-top: 2rem; }
         .footer_area { padding-top: 40px !important; padding-bottom: 40px !important; }
     </style>
+<link rel="stylesheet" href="css/portfolio-overrides.css">
 </head>
 
-<body>
+<body><a class="skip-link" href="#main-content">Skip to content</a>
 <header class="header_area">
     <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -65,10 +66,10 @@
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#featured-projects">Featured Work</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#featured-projects">Featured Work</a></li>
                         <li class="nav-item"><a class="nav-link" href="skills.html">Skills</a></li>
                         <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -76,17 +77,17 @@
     </div>
 </header>
 
-<section class="banner_area">
+<main id="main-content"><section class="banner_area">
     <div class="box_1620">
         <div class="banner_inner d-flex align-items-center">
             <div class="container">
                 <div class="banner_content text-center">
-                    <h2>Cybersecurity Projects</h2>
+                    <h1>Cybersecurity Projects</h1>
                     <div class="page_link">
                         <a href="index.html">Home</a>
-                        <a href="#featured-projects">Featured Work</a>
+                        <a href="index.html#featured-projects">Featured Work</a>
                         <a href="projects.html">Projects</a>
-                        <a href="#contact">Contact</a>
+                        <a href="index.html#contact">Contact</a>
                     </div>
                 </div>
             </div>
@@ -131,19 +132,19 @@
                     <span class="tag">Digital Forensics</span>
                 </div>
                 <div class="project-links">
-                    <a class="btn btn-primary" href="#" aria-disabled="true">Case Study Coming Soon</a>
+                    <a class="btn btn-primary" href="incident-response.html">Read case study</a>
                 </div>
             </article>
 
             <article class="project-card">
-                <h3>Enterprise Security Homelab</h3>
-                <div class="project-subtitle">Segmented Network Defense Environment</div>
+                <h3>Network Security Training Lab</h3>
+                <div class="project-subtitle">Segmented Network Defense Environment</div><p><a href="network-segmentation.html">Review network zones and firewall policy →</a></p>
                 <p>
                     Multi-system virtual lab designed to practice defensive administration, logging, segmentation,
                     identity controls, and incident investigation.
                 </p>
                 <ul>
-                    <li>Built a lab with OPNsense, Linux, Windows Server, Active Directory, Kali Linux, and Wazuh.</li>
+                    <li>Practiced in a provided training environment with OPNsense, Linux, Windows Server, Active Directory, Kali Linux, and Wazuh.</li>
                     <li>Created LAN/DMZ/WAN segmentation and firewall/ACL rules based on least-privilege access.</li>
                     <li>Hardened SSH and reduced unnecessary services on Linux systems.</li>
                     <li>Used Wazuh and native host logs to investigate authentication, account creation, and privilege activity.</li>
@@ -160,7 +161,7 @@
             </article>
 
             <article class="project-card">
-                <h3>Vulnerability Assessment & Reconnaissance</h3>
+                <h3 id="vulnerability-assessment">Vulnerability Assessment &amp; Reconnaissance</h3>
                 <div class="project-subtitle">Multi-Host Security Assessment</div>
                 <p>
                     Structured network reconnaissance and service analysis used to identify exposed systems,
@@ -208,13 +209,12 @@
         <div class="note-card">
             <strong>Portfolio note:</strong>
             Security labs are intentionally presented as controlled lab work rather than production incidents.
-            Detailed case studies will include sanitized timelines, findings, evidence-handling steps, screenshots,
-            and remediation notes where appropriate.
+            The incident-response case study explains findings, evidence handling, and limitations. The network design page documents configured policy; it does not claim independent production validation.
         </div>
     </div>
 </section>
 
-<footer class="footer_area">
+</main><footer class="footer_area">
     <div class="container">
         <div class="row footer_inner align-items-center">
             <div class="col-md-6 text-center text-md-left">
@@ -222,8 +222,8 @@
             </div>
             <div class="col-md-6 text-center text-md-right">
                 <ul class="list personal_social">
-                    <li><a href="https://github.com/Sauseda15" target="_blank" rel="noopener"><i class="fa fa-github"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/larry-sauseda/" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/Sauseda15" target="_blank" rel="noopener"><i aria-hidden="true" class="fa fa-github"></i><span class="sr-only">GitHub</span></a></li>
+                    <li><a href="https://www.linkedin.com/in/larry-sauseda/" target="_blank" rel="noopener"><i aria-hidden="true" class="fa fa-linkedin"></i><span class="sr-only">LinkedIn</span></a></li>
                 </ul>
             </div>
         </div>

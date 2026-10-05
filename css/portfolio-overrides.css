@@ -546,3 +546,20 @@ section .section-title h2 {
         padding: 1.25rem !important;
     }
 }
+
+/* Portfolio evidence pages and keyboard navigation */
+.profile-links { margin-top: 1rem; }
+a { color: #80b8ff; }
+a:hover { color: #b7d8ff; }
+a:focus-visible, button:focus-visible { outline: 3px solid #ffd166; outline-offset: 4px; }
+.skip-link { position: fixed; top: -100px; left: 1rem; z-index: 99999; background: #fff; color: #111; padding: .8rem; }
+.skip-link:focus { top: 1rem; }
+.case-card, .meta-card, .note-card { background: var(--panel) !important; border-color: var(--border) !important; color: var(--text); }
+.case-card h2, .case-card h3, .case-hero h1, .case-wrap h1, .portfolio-intro h2, .skills-intro h2, .timeline-copy h3 { color: var(--text); }
+.case-card li, .case-card td, .case-card th, .meta-card, .evidence { color: var(--muted); }
+.evidence-table th, .evidence-table td { border-color: #465164; }
+.callout { background: #202a39; border-color: var(--accent-2); }
+.case-card code { color: #b7d8ff; overflow-wrap: anywhere; }
+.two-col { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.project-card .btn-outline-dark { color: var(--text); border-color: #65738a; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }

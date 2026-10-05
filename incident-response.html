@@ -125,9 +125,10 @@
             border-radius: 4px;
         }
     </style>
+<link rel="stylesheet" href="css/portfolio-overrides.css">
 </head>
 
-<body>
+<body><a class="skip-link" href="#main-content">Skip to content</a>
 <header class="header_area">
     <div class="main_menu">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -170,7 +171,7 @@
     </div>
 </section>
 
-<main class="p_120">
+<main id="main-content" class="p_120">
     <div class="container">
         <div class="case-wrap">
 
@@ -179,7 +180,7 @@
                 <h1>Compromised DMZ Web Server</h1>
                 <p class="case-lede">
                     A controlled incident-response exercise involving a Linux DMZ host with unauthorized accounts,
-                    privilege abuse, disabled host protections, and persistent malicious tooling. The objective was to
+                    privilege abuse, disabled host protections, and suspicious persistence artifacts. The objective was to
                     identify the compromise, contain affected access, preserve evidence, reconstruct attacker activity,
                     and document the incident using repeatable DFIR procedures.
                 </p>
@@ -209,7 +210,7 @@
                 <p>
                     Investigation of <strong>WEB-DMZ-01</strong> identified signs of unauthorized administrative access,
                     including suspicious local accounts, elevated privileges, a stopped host firewall, hidden files,
-                    a malicious persistence mechanism, and a suspicious service/process chain.
+                    a suspicious persistence mechanism, and a suspicious service/process chain.
                 </p>
                 <p>
                     Containment actions included disabling unauthorized accounts, removing interactive shell access,
@@ -219,7 +220,7 @@
 
                 <div class="callout">
                     <strong>Portfolio context:</strong>
-                    This was a simulated incident in a self-contained lab environment. It is presented as hands-on DFIR
+                    This was a simulated incident in a provided ACI training environment. My work focused on investigation, containment actions, preservation, and documentation. It is presented as hands-on DFIR
                     training and not as a production breach.
                 </div>
             </section>
@@ -381,10 +382,6 @@
                     likely areas for future mapping include account creation, privilege escalation, persistence through system
                     services, credential/SSH artifact use, and defense impairment.
                 </p>
-                <div class="callout">
-                    I would keep the portfolio wording exactly this cautious unless you later document specific technique IDs
-                    from your lab notes. It is better to show disciplined analysis than to force an unsupported ATT&CK mapping.
-                </div>
             </section>
 
             <section class="case-card">
@@ -396,33 +393,6 @@
                     <li>Host logs become more useful when correlated with process state, filesystem artifacts, and network listeners.</li>
                     <li>Chain-of-custody documentation should begin during collection, not after the technical work is finished.</li>
                 </ul>
-            </section>
-
-            <section class="case-card">
-                <h2>Sanitized Screenshots & Artifacts</h2>
-                <p>
-                    Add screenshots here after removing any unnecessary usernames, IP addresses, or training-environment details
-                    that you do not want publicly exposed.
-                </p>
-
-                <div class="two-col">
-                    <div class="placeholder">
-                        Screenshot placeholder<br>
-                        <small>Example: suspicious service / systemctl output</small>
-                    </div>
-                    <div class="placeholder">
-                        Screenshot placeholder<br>
-                        <small>Example: SHA-256 verification / evidence manifest</small>
-                    </div>
-                    <div class="placeholder">
-                        Screenshot placeholder<br>
-                        <small>Example: journalctl timeline</small>
-                    </div>
-                    <div class="placeholder">
-                        Screenshot placeholder<br>
-                        <small>Example: process/network investigation</small>
-                    </div>
-                </div>
             </section>
 
             <section class="case-card">
@@ -441,16 +411,7 @@
                 </div>
             </section>
 
-            <section class="case-card">
-                <h2>Next Improvements</h2>
-                <ul>
-                    <li>Add a sanitized network diagram showing WEB-DMZ-01, firewall zones, and EVIDENCE01.</li>
-                    <li>Add a concise incident timeline graphic.</li>
-                    <li>Publish a redacted evidence manifest and SHA-256 verification example.</li>
-                    <li>Create a formal ATT&CK mapping after validating technique IDs against the observed lab behavior.</li>
-                    <li>Link a downloadable sanitized incident report PDF once prepared.</li>
-                </ul>
-            </section>
+            <section class="case-card"><h2>Results and limitations</h2><p>The exercise produced an incident narrative, an evidence manifest, and a verified transfer of collected artifacts. The recovery recommendation was to rebuild the affected host from a trusted baseline.</p><p>This page summarizes the training exercise. Original logs, screenshots, hash values, and the evidence manifest are not attached, so readers cannot independently reproduce the findings from this page alone. The initial access route, the full scope of activity, and successful eradication were not established. Account locking and firewall restart are documented actions, not proof of complete containment.</p><p>The time window above reflects lab notes; the timezone has not been independently verified. No production incident, client engagement, or formal forensic certification is claimed.</p></section>
 
         </div>
     </div>
@@ -465,8 +426,8 @@
 
             <div class="col-md-6 text-center text-md-right">
                 <ul class="list personal_social">
-                    <li><a href="https://github.com/Sauseda15" target="_blank" rel="noopener"><i class="fa fa-github"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/larry-sauseda/" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/Sauseda15" target="_blank" rel="noopener"><i aria-hidden="true" class="fa fa-github"></i><span class="sr-only">GitHub</span></a></li>
+                    <li><a href="https://www.linkedin.com/in/larry-sauseda/" target="_blank" rel="noopener"><i aria-hidden="true" class="fa fa-linkedin"></i><span class="sr-only">LinkedIn</span></a></li>
                 </ul>
             </div>
         </div>
